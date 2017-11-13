@@ -506,6 +506,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
     @ReactMethod
     public void releaseCamera(final ReadableMap options) {
         Camera camera = RCTCamera.getInstance().releaseCameraInstance(options.getInt("type"));
+        return;
     }
 
     private void captureWithOrientation(final ReadableMap options, final Promise promise, int deviceOrientation) {
