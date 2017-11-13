@@ -237,7 +237,21 @@ export default class Camera extends Component {
   }
 
   releaseCamera() {
-    CameraManager.releaseCamera()
+      const props = convertNativeProps(this.props);
+      const options = {
+          audio: props.captureAudio,
+          barCodeTypes: props.barCodeTypes,
+          mode: props.captureMode,
+          playSoundOnCapture: props.playSoundOnCapture,
+          target: props.captureTarget,
+          quality: props.captureQuality,
+          type: props.type,
+          title: '',
+          description: '',
+          mirrorImage: props.mirrorImage,
+          fixOrientation: props.fixOrientation
+      }
+    CameraManager.releaseCamera(options)
   }
 
   stopCapture() {
