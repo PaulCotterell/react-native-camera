@@ -62,7 +62,7 @@ public class RCTCamera {
         Camera releasingCamera = _cameras.get(type);
         if (null != releasingCamera) {
             _cameras.remove(type);
-            releasingCamera.stopPreview()
+            releasingCamera.stopPreview();
             releasingCamera.release();
             releasingCamera = null;
         }
