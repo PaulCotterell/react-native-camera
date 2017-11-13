@@ -507,6 +507,7 @@ public class RCTCameraModule extends ReactContextBaseJavaModule
     public void releaseCamera(final ReadableMap options, final Promise promise) {
         try {
             RCTCamera.getInstance().releaseCameraAndPreview(options.getInt("type"));
+            promise.resolve()
         }
         catch(RuntimeException ex) {
             promise.reject(new RuntimeException("Could not release camera."));
