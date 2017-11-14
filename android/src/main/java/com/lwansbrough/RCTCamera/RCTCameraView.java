@@ -30,14 +30,11 @@ public class RCTCameraView extends ViewGroup {
     public RCTCameraView(Context context) {
         super(context);
         this._context = context;
-        RCTCamera existingCamera = RCTCamera.getInstance();
-
-        if(null != existingCamera){
-            Log.d(TAG, "EXISTING CAM. KILL IT");
-            _viewFinder.stopCamera();
-        }
-
         Log.d(TAG, "RCTCamera.createInstance");
+
+        if(null != RCTCamera.getInstance()){
+            Log.d(TAG, "CAM INSTANCE ALREADY EXISTS");
+        }
 
         RCTCamera.createInstance(getDeviceOrientation(context));
 
