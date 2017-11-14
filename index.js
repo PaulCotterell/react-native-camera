@@ -251,7 +251,7 @@ export default class Camera extends Component {
           mirrorImage: props.mirrorImage,
           fixOrientation: props.fixOrientation
       }
-    CameraManager.releaseCamera(options)
+    return CameraManager.releaseCamera(options)
   }
 
   stopCapture() {
