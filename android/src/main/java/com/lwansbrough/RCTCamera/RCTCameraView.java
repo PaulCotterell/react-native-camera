@@ -34,10 +34,7 @@ public class RCTCameraView extends ViewGroup {
 
         if(null != existingCamera){
             Log.d(TAG, "EXISTING CAM. KILL IT");
-            existingCamera.stopPreview();
-            existingCamera.setPreviewCallback(null);
-            existingCamera.release();
-            existingCamera = null;
+            _viewFinder.stopCamera();
         }
 
         Log.d(TAG, "RCTCamera.createInstance");

@@ -193,7 +193,7 @@ class RCTCameraViewFinder extends TextureView implements TextureView.SurfaceText
         }
     }
 
-    synchronized private void stopCamera() {
+    synchronized public void stopCamera() {
         if (!_isStopping) {
             _isStopping = true;
             try {
