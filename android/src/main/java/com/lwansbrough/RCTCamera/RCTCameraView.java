@@ -10,10 +10,13 @@ import android.view.OrientationEventListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.View;
+import android.util.Log;
 
 import java.util.List;
 
 public class RCTCameraView extends ViewGroup {
+    private static final String TAG = "RCTCameraView";
+
     private final OrientationEventListener _orientationListener;
     private final Context _context;
     private RCTCameraViewFinder _viewFinder = null;
@@ -27,6 +30,7 @@ public class RCTCameraView extends ViewGroup {
     public RCTCameraView(Context context) {
         super(context);
         this._context = context;
+        Log.d(TAG, "RCTCamera.createInstance");
         RCTCamera.createInstance(getDeviceOrientation(context));
 
         _orientationListener = new OrientationEventListener(context, SensorManager.SENSOR_DELAY_NORMAL) {
