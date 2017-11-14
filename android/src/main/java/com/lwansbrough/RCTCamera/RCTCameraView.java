@@ -31,7 +31,11 @@ public class RCTCameraView extends ViewGroup {
         super(context);
         this._context = context;
         Log.d(TAG, "RCTCamera.createInstance");
-        RCTCamera.createInstance(getDeviceOrientation(context));
+
+        if(null == RCTCamera.getInstance()){
+            Log.d(TAG, "CAM INSTANCE ALREADY EXISTS");
+            RCTCamera.createInstance(getDeviceOrientation(context));
+        }
 
         _orientationListener = new OrientationEventListener(context, SensorManager.SENSOR_DELAY_NORMAL) {
             @Override
