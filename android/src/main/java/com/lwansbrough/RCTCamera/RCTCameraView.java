@@ -30,9 +30,9 @@ public class RCTCameraView extends ViewGroup {
     public RCTCameraView(Context context) {
         super(context);
         this._context = context;
-        Camera exisingCamera = RCTCamera.getInstance();
+        Camera existingCamera = RCTCamera.getInstance();
 
-        if(null != exisingCamera){
+        if(null != existingCamera){
             Log.d(TAG, "EXISTING CAM. KILL IT");
             existingCamera.stopPreview();
             existingCamera.setPreviewCallback(null);
