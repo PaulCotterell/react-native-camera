@@ -55,7 +55,7 @@ public class RCTCamera {
         Camera releasingCamera = _cameras.get(type);
         if (null != releasingCamera) {
             _cameras.remove(type);
-            Log.e(TAG, "RELEASING " + type + " CAM", _cameras);
+            Log.e(TAG, "RELEASING " + type + " CAM" + _cameras.toString());
             releasingCamera.release();
         }
     }
@@ -65,7 +65,7 @@ public class RCTCamera {
         Camera releasingCamera = _cameras.get(type);
         if (null != releasingCamera) {
             _cameras.remove(type);
-            Log.e(TAG, "RELEASING AND STOP PREVIEW" + type + " CAM", _cameras);
+            Log.e(TAG, "RELEASING AND STOP PREVIEW" + type + " CAM" + _cameras.toString());
             releasingCamera.stopPreview();
             releasingCamera.release();
             releasingCamera = null;
