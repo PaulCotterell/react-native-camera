@@ -449,7 +449,6 @@ public class RCTCamera {
                 releaseCameraInstance(RCTCameraModule.RCT_CAMERA_TYPE_FRONT);
             } else if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK && _cameraInfos.get(RCTCameraModule.RCT_CAMERA_TYPE_BACK) == null) {
                 Log.d(TAG, "INSTANTIATE BACK FACING CAM");
-                Log.d(TAG, Camera.getNumberOfCameras().toString());
                 Log.d(TAG, _cameraTypeToIndex.toString());
                 _cameraInfos.put(RCTCameraModule.RCT_CAMERA_TYPE_BACK, new CameraInfoWrapper(info));
                 _cameraTypeToIndex.put(RCTCameraModule.RCT_CAMERA_TYPE_BACK, i);
