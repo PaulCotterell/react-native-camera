@@ -7,7 +7,6 @@ package com.lwansbrough.RCTCamera;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.util.Log;
-import android.app.AlertDialog;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +14,8 @@ import java.util.Map;
 import java.lang.Math;
 
 public class RCTCamera {
+    private static final String TAG = "RCTCamera";
+
     private static RCTCamera ourInstance;
     private final HashMap<Integer, CameraInfoWrapper> _cameraInfos;
     private final HashMap<Integer, Integer> _cameraTypeToIndex;
@@ -447,7 +448,9 @@ public class RCTCamera {
                 acquireCameraInstance(RCTCameraModule.RCT_CAMERA_TYPE_FRONT);
                 releaseCameraInstance(RCTCameraModule.RCT_CAMERA_TYPE_FRONT);
             } else if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK && _cameraInfos.get(RCTCameraModule.RCT_CAMERA_TYPE_BACK) == null) {
-                AlertDialog dialog = new AlertDialog(MainActivity.this);
+                Log.d(TAG, '***INSTANTIATE BACK FACING CAM***');
+                Log.d(TAG, Camera.getNumberOfCameras());
+                Log.d(TAG, _cameraTypeToIndex);
                 _cameraInfos.put(RCTCameraModule.RCT_CAMERA_TYPE_BACK, new CameraInfoWrapper(info));
                 _cameraTypeToIndex.put(RCTCameraModule.RCT_CAMERA_TYPE_BACK, i);
                 acquireCameraInstance(RCTCameraModule.RCT_CAMERA_TYPE_BACK);
