@@ -11,6 +11,7 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 import android.view.TextureView;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
@@ -33,6 +34,8 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.HybridBinarizer;
 
 class RCTCameraViewFinder extends TextureView implements TextureView.SurfaceTextureListener, Camera.PreviewCallback {
+    private static final String TAG = "RCTCameraViewFinder";
+
     private int _cameraType;
     private int _captureMode;
     private SurfaceTexture _surfaceTexture;
@@ -75,6 +78,7 @@ class RCTCameraViewFinder extends TextureView implements TextureView.SurfaceText
         _surfaceTexture = null;
         _surfaceTextureWidth = 0;
         _surfaceTextureHeight = 0;
+        Log.d(TAG, "onSurfaceTextureDestroyed");
         stopCamera();
         return true;
     }
@@ -198,6 +202,7 @@ class RCTCameraViewFinder extends TextureView implements TextureView.SurfaceText
                     // stop sending previews to `onPreviewFrame`
                     _camera.setPreviewCallback(null);
                     RCTCamera.getInstance().releaseCameraInstance(_cameraType);
+                    Log.d(TAG, "stopCamera");
                     _camera = null;
                 }
 
